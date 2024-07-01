@@ -72,18 +72,14 @@
 //     // });
 // });
 const http = require('http');
+const fs = require('fs');   
 
+const data=fs.readFileSync('index.html');
 
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
 
-    if (req.url === '/login') {
-        res.write('<html lang="en"><head><title>NodeJS Class</title></head>');
-        res.write('<body><h1>Hello, login</h1></body></html>');
-    } else {
-        res.write('<html lang="en"><head><title>NodeJS Class</title></head>');
-        res.write('<body><h1>Hello, World</h1></body></html>');
-    }
+    res.write(data);
 
     res.end();
 });
